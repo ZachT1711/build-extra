@@ -31,10 +31,8 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.cpp
 $(BUILDDIR)/blocked-file-util.exe: $(BUILDDIR)/blocked-file-util.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-$(BUILDDIR)/proxy-lookup.o: CFLAGS += -DUNICODE
-
 $(BUILDDIR)/proxy-lookup.exe: $(BUILDDIR)/proxy-lookup.o
-	$(CC) -municode $(CFLAGS) -o $@ $^ -lshell32 -lwinhttp
+	$(CC) $(CFLAGS) -o $@ $^ -lshell32 -lwinhttp
 
 $(BUILDDIR)/git-askyesno.o: CFLAGS += -DUNICODE
 
