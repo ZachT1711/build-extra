@@ -1174,8 +1174,8 @@ end;
 
 function DetectNetFxVersion:Cardinal;
 begin
-    // We are only interested in version v4.7.2 or later, therefore it
-    // is enough to only use the "4.5 and later" method described in
+    // We are only interested in version v4.5.1 or later, therefore it
+    // is enough to only use the 4.5 method described in
     // https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
     if IsWin64 then begin
         if (
@@ -2287,12 +2287,11 @@ begin
     // No credential helper
     RdbGitCredentialManager[GCM_None]:=CreateRadioButton(GitCredentialManagerPage,'None','Do not use a credential helper.',TabOrder,Top,Left);
 
-    // Restore the settings chosen during a previous install, if .NET Framework 4.7.2
+    // Restore the settings chosen during a previous install, if .NET 4.5.1
     // or later is available.
-    if DetectNetFxVersion()<461808 then begin
+    if DetectNetFxVersion()<378675 then begin
         RdbGitCredentialManager[GCM].Checked:=False;
         RdbGitCredentialManager[GCM].Enabled:=False;
-        RdbGitCredentialManager[GCM].Caption:=RdbGitCredentialManager[GCM].Caption+' (requires .NET Framework >= 4.7.2)'
     end else begin
         case ReplayChoice('Use Credential Manager','Enabled') of
             'Disabled': RdbGitCredentialManager[GCM_None].Checked:=True;
@@ -3181,9 +3180,9 @@ begin
 
 #ifdef WITH_EXPERIMENTAL_BUILTIN_FSMONITOR
     if RdbExperimentalOptions[GP_EnableFSMonitor].checked then
-        GitSystemConfigSet('core.fsmonitor','true')
+        GitSystemConfigSet('core.useBuiltinFSMonitor','true')
     else
-        GitSystemConfigSet('core.fsmonitor',#0);
+        GitSystemConfigSet('core.useBuiltinFSMonitor',#0);
 #endif
 
     {
