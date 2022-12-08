@@ -1,5 +1,5 @@
-# Git for Windows v2.38.0 Release Notes
-Latest update: October 3rd 2022
+# Git for Windows v2.38.1 Release Notes
+Latest update: October 18th 2022
 
 ## Introduction
 
@@ -40,11 +40,33 @@ Git for Windows also contains Embedded CAcert Root Certificates. For more inform
 
 This package contains software from a number of other projects including Bash, zlib, curl, tcl/tk, perl, MSYS2 and a number of libraries and utilities from the GNU project, licensed under the GNU General Public License. Likewise, it contains Perl which is dual licensed under the GNU General Public License and the Artistic License.
 
+## Changes since Git for Windows v2.38.1 (October 18th 2022)
+
+### New Features
+
+* Comes with [OpenSSL v1.1.1s](https://www.openssl.org/news/openssl-1.1.1-notes.html).
+* Comes with [cURL v7.86.0](https://curl.haxx.se/changes.html#7_86_0).
+* The Portable Git edition (which comes as a self-extracting 7-Zip archive) [now uses the latest 7-Zip version to self-extract](https://github.com/git-for-windows/build-extra/commit/0240a09014a4fcfd9f487e50d7a09464a2e428b8).
+* Comes with [OpenSSH v9.1p1](https://www.openssh.com/txt/release-9.1).
+* It [is now possible](https://github.com/git-for-windows/MSYS2-packages/commit/6823ee7b329b53f38747f64db8fb8d6de077a0e4) to generate and use [SSH keys protected by security keys](https://man.openbsd.org/ssh-keygen#FIDO_AUTHENTICATOR) (AKA FIDO devices) via Windows Hello, e.g. via `ssh-keygen.exe -t ecdsa-sk`.
+* Portable Git no longer configures `color.diff`, `color.status` and `color.branch` individually, but [configures `color.ui` instead](https://github.com/git-for-windows/build-extra/pull/442), which makes it easier to override the default.
+* Comes with [GNU TLS v3.7.8](https://lists.gnupg.org/pipermail/gnutls-help/2022-September/004765.html).
+* Comes with [Git Credential Manager Core v2.0.877](https://github.com/GitCredentialManager/git-credential-manager/releases/tag/v2.0.877).
+* Comes with [MinTTY v3.6.2](https://github.com/mintty/mintty/releases/tag/3.6.2).
+* Comes with [Bash v5.2 patchlevel 12](https://tiswww.case.edu/php/chet/bash/NEWS).
+* Comes with [Git LFS v3.3.0](https://github.com/git-lfs/git-lfs/releases/tag/v3.3.0).
+* Comes with [PCRE2 v10.41](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.41/ChangeLog).
+
+### Bug Fixes
+
+* The Git executables (e.g. `git.exe` itself) used to have incomplete version information recorded in their resources, which [has been fixed](https://github.com/git-for-windows/git/pull/4092).
+* A [regression](https://github.com/git-for-windows/git/issues/4052) introduced in Git for Windows v2.38.0 that prevented `git.exe` from running in Windows Nano Server containers [was fixed](https://github.com/git-for-windows/git/pull/4074).
+
 ## Changes since Git for Windows v2.38.0 (October 3rd 2022)
 
 ### New Features
 
-* Comes with [OpenSSL v1.1.1r](https://www.openssl.org/news/openssl-1.1.1-notes.html).
+* Comes with [Git v2.38.1](https://github.com/git/git/blob/v2.38.1/Documentation/RelNotes/2.38.1.txt).
 
 ## Changes since Git for Windows v2.37.3 (August 30th 2022)
 
